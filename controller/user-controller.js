@@ -38,9 +38,28 @@ return res.json({ message: "User logged in successfully!"});
 };
 
 
-const getUserById = async (req , res) => {
+// const getUserById = async (req , res) => {
   
+// };
+
+const getUserById = async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    const user = await User.findByPk(userId, {
+      attributes: { exclude: ['password'] }
+    });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found!" });
+    }
+
+    return res.json({ message: "User fetched successfully!", data: user });
+  } catch (error) {
+    return res.status(500).json({ message: "Error fetching user", error: error.message });
+  }
 };
+
 
 const deleteUser = async (req , res) => {
 
