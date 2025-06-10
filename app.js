@@ -16,7 +16,7 @@ sequelize.authenticate()
 .catch(err => console.error('Database error', err)
 );
 
-app.use('/api/user',userRouter);
+app.use('/api/users',userRouter);
 
 app.listen(3000, () => {
   console.log('Server running at http://localhost:3000');
