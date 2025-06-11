@@ -13,7 +13,7 @@ userRouter.get("/", getAllUsers);
 userRouter.post("/register", registerUser);
 userRouter.post("/login", loginUser);
 userRouter.get("/:id", getUserById);
-userRouter.delete("/", deleteUser);
-userRouter.put("/", updateUser);
+userRouter.delete("/:id", deleteUser);
+userRouter.put("/:id", updateUser);
 
 module.exports = userRouter;
