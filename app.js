@@ -18,6 +18,7 @@ sequelize.authenticate()
 
 app.use('/api/users',userRouter);
 
+//Run Server
 app.listen(3000, () => {
   console.log('Server running at http://localhost:3000');
 });
